@@ -43,7 +43,7 @@ function replaceAll(str, find, replace)
 	return str.replace(new RegExp(find, 'g'), replace);
 }
 
-function findNewOpponent()
+/* function findNewOpponent()
 {
 	var buttons = document.getElementsByClassName("button");
 	var i;
@@ -57,7 +57,7 @@ function findNewOpponent()
 	}
 	return false;
 }
-
+*/
 function isMyTurn()
 {
 	return (isWhite && fen.includes(" w")) || (!isWhite && fen.includes(" b"));
@@ -79,7 +79,7 @@ window.WebSocket = function (a, b)
     that.addEventListener("message", function (e)
     {
     	/* If game is over then search for new game */
-        findNewOpponent();
+       /* findNewOpponent(); */
 
         var message = JSON.parse(e.data);
         if (typeof message.d != 'undefined' && typeof message.v != 'undefined' && typeof message.d.fen != 'undefined')
