@@ -2,7 +2,9 @@
 Bot created for lichess.com using open source stockfish chess engine
 
 Using Javascript you can utilise the open source chess engine stockfish https://github.com/nmrugg/stockfish.js alongside websockets to have a fully automated bot that does not even need to be viewable on your screen (no mouse clicks etc) in around 40 lines of code.
-
+######ALERT NONE OF THESE EXEPT lichess.js WORK#####
+######USE ONLY LICHESS.JS#####
+lichess.js (/lichess.js)
 # How to Use
 
 1. Get tampermonkey extension
@@ -15,11 +17,11 @@ Using Javascript you can utilise the open source chess engine stockfish https://
 
 There are 3 scripts, each which are varying levels of skill.
 
-lichessLegit is stockfish level 6 and moves at a good human level pace
+lichessLegit(/lichessLegit.js) is stockfish level 6 and moves at a good human level pace
 
-lichessFast is stockfish level 6 and moves at very fast speeds (still doable for a human)
+lichessFast(/lichessFast.js) is stockfish level 6 and moves at very fast speeds (still doable for a human)
 
-lichessBot is stockfish level 7 and moves almost instantly (very obviously a bot)
+lichessBot(/lichessBot.js) is stockfish level 7 and moves almost instantly (very obviously a bot)
 
 There is a feature which allows you to have the bot automatically find a new game (so it can continue to play without you needing to touch anything after a match ends) This is disabled by default. If you wish to enable it, search for the line //findNewOpponent(); and remove the //
 
