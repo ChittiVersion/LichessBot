@@ -8,7 +8,7 @@
 // ==/UserScript==
  */
 /******** Stockfish.js 9 START (http://github.com/nmrugg/stockfish.js) ********/
-var STOCKFISH=new Worker('https://raw.githubusercontent.com/Jps838898/LichessBot/master/stockfish.asm.js')
+var STOCKFISH=new Worker('https://raw.githubusercontent.com/Jps838898/LichessBot/master/Engines/stockfish_9_0_0.asm.js')
 
 /******** Stockfish.js END (http://github.com/nmrugg/stockfish.js) ********/
 var stockfish = Stockfish();
