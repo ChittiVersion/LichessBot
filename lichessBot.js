@@ -119,9 +119,7 @@ function makeMove()
 	stockfish.postMessage("setoption name Use NNUE value true");
 	stockfish.postMessage("setoption name UCI_LimitStrength value true");
 	stockfish.postMessage("setoption name Ponder value " + false);
-	stockfish.postMessage();
-	stockfish.postMessage();
-	stockfish.postMessage("go wtime 0");	// stockfish response will trigger a move
+	stockfish.postMessage("go depth 12");	// stockfish response will trigger a move
 }
 
 function sleep(ms)
@@ -136,7 +134,7 @@ stockfish.onmessage = async function(event) {
 	{
 		var newScore = parseInt(event.split("score")[1].split("cp ")[1]);
 		var bestMove = replaceAll(event.split("bestmove")[1], " ", "");
-		var moveTime = "1500";		/* set moveTime = "0" for pre-move abuse!*/
+		var moveTime = "0";		/* set moveTime = "0" for pre-move abuse!*/
 		 if (typeof score != 'undefined')
 		if (typeof newScore != 'undefined')
 		{
@@ -145,7 +143,7 @@ stockfish.onmessage = async function(event) {
 			{
 				/* You can alter how much Math.random is being multiplied by to change how fast you want a large chunk of your moves to be */
 				var sleepTime = ((Math.random() * 4 ) + 0.25) * 1000;
-				moveTime = "1500";
+				moveTime = "0";
 				await sleep(sleepTime);
 			}
 			else if (newScore == score)
@@ -157,7 +155,7 @@ stockfish.onmessage = async function(event) {
 			{
 				/* Fast Moving */
 				var sleepTime = ((Math.random() * 1.5) + .15) * 1000;
-				moveTime = "1500";
+				moveTime = "0";
 				await sleep(sleepTime);
 			}
 			 /* auto resign - not needed for ultra bullet*/
