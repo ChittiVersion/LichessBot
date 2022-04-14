@@ -5,14 +5,15 @@ Using Javascript you can utilise the open source chess engine stockfish https://
 
 
 
-# ALERT NONE OF THE OTHER SCRIPTS WORK EXEPT lichess.js WHICH DOES WORK
+# ALERT NONE OF THE OTHER SCRIPTS WORK EXEPT [lichess.js](lichess.js) and [LichessBot.js](lichessBot.js) (is kinda human prob use for bullet 2+1 and blitz may still get you banned) WHICH DOES WORK
 
 # USE ONLY LICHESS.JS
 
 lichess.js is sf9 asm.js version
 
-working on getting it updated to sf11 + HCE
+will update lichess.js soon
 
+lichessBot.js uses sf 11.0.1 asm.js ver 
 
 # How to Use
 
