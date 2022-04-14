@@ -138,7 +138,7 @@ stockfish.onmessage = async function(event) {
 	    		{
                     // You can alter how much Math.random is being multiplied by to change how fast you want a large chunk of your moves to be
                     var sleepTime = ((Math.random() * 10) + .55) * 1000;
-	    			moveTime = "y";
+	    			moveTime = ((Math.random() * 4) + .55) * 1000;
 	    			await sleep(sleepTime);
 	    		}
 	    		else if (newScore == score)
@@ -150,14 +150,14 @@ stockfish.onmessage = async function(event) {
                 {
                     // Fast Moving
                     var sleepTime = ((Math.random() * 1.5) + .15) * 1000;
-	    			moveTime = "y";
+	    			moveTime = ((Math.random() * 3.5) + .55) * 1000;
                     await sleep(sleepTime);
                 }
- 	    		// auto resign - not needed for ultra bullet
-	   			// if (newScore < -600)
-				// {
-				// 	lichess.socket.send("resign");
-				// }
+ 	    	// auto resign - not needed for ultra bullet
+	   			 if (newScore < -600)
+				 {
+				 	lichess.socket.send("resign");
+				 }
 	    	}
  	    	score = newScore;
  	    	// Send websocket move request to lichess server
