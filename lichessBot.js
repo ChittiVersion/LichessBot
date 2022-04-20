@@ -114,7 +114,7 @@ stockfish.postMessage("position fen " + fen);
 stockfish.postMessage("setoption name Skill Level value " + 6);
 stockfish.postMessage("setoption name nodestime value " + 2500);
 stockfish.postMessage("setoption name Ponder value " + false);
-stockfish.postMessage("go"); // stockfish response will trigger a move
+stockfish.postMessage("go depth 3"); // stockfish response will trigger a move
 }
 
 function sleep(ms)
@@ -129,7 +129,7 @@ stockfish.onmessage = async function(event) {
 	    {
             var newScore = parseInt(event.split("score")[1])&&parseInt(event.split("cp ")[1]);
 	    	var bestMove = replaceAll(event.split("bestmove")[1], " ", "");
-	    	var moveTime = "y";		// set moveTime = "0" for pre-move abuse!
+	    	var moveTime = "0";		// set moveTime = "0" for pre-move abuse!
  	    	if (typeof score != 'undefined')
 	    	if (typeof newScore != 'undefined')
 	    	{
@@ -137,20 +137,20 @@ stockfish.onmessage = async function(event) {
 	    		if (Math.abs(newScore - score) > 100)
 	    		{
                     // You can alter how much Math.random is being multiplied by to change how fast you want a large chunk of your moves to be
-                    var sleepTime = ((Math.random() * 10) + .55) * 1000;
-	    			moveTime = ((Math.random() * 4) + .55) * 1000;
+                    var sleepTime = ((Math.random() * 15) + .55) * 1000;
+	    			moveTime = ((Math.random() * 20) + .55) * 1000;
 	    			await sleep(sleepTime);
 	    		}
 	    		else if (newScore == score)
 	    		{
                     // Pre Moving
-                    moveTime = "0";
+                    moveTime = ((Math.random() * 7) + .15) * 1000;
 	    		}
                 else
                 {
                     // Fast Moving
                     var sleepTime = ((Math.random() * 1.5) + .15) * 1000;
-	    			moveTime = ((Math.random() * 3.5) + .55) * 1000;
+	    			moveTime = ((Math.random() * 10) + .55) * 1000;
                     await sleep(sleepTime);
                 }
  	    	// auto resign - not needed for ultra bullet
